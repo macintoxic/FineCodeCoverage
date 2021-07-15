@@ -280,6 +280,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="AlphaFS">
+      <Version>2.2.6</Version>
+    </PackageReference>
     <PackageReference Include="CliWrap">
       <Version>3.2.2</Version>
     </PackageReference>
