@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.IO;
 using System.Linq;
 using FineCodeCoverage.Core.Utilities;
+using Directory = Alphaleonis.Win32.Filesystem.Directory;
+using DirectoryInfo = Alphaleonis.Win32.Filesystem.DirectoryInfo;
+using File = Alphaleonis.Win32.Filesystem.File;
+using FileInfo = Alphaleonis.Win32.Filesystem.FileInfo;
+using Path = Alphaleonis.Win32.Filesystem.Path;
 
 namespace FineCodeCoverage.Engine.FileSynchronization
 {
@@ -22,9 +26,14 @@ namespace FineCodeCoverage.Engine.FileSynchronization
 			var destDir = new DirectoryInfo(Path.GetFullPath(destinationFolder) + '\\');
 
 			// file lists
-			var sourceFileInfos = srceDir.GetFiles().Concat(srceDir.GetDirectories().Where(d => d.Name != fineCodeCoverageFolderName).SelectMany(d => d.GetFiles("*", SearchOption.AllDirectories)));
+			var sourceFileInfos = srceDir.GetFiles().Concat(srceDir.GetDirectories()
+                .Where(d => d.Name != fineCodeCoverageFolderName).SelectMany(d => d.GetFiles("*", System.IO.SearchOption.AllDirectories)));
+
+
 			var srceFiles = sourceFileInfos.AsParallel().Select(fi => new ComparableFile(fi, fi.FullName.Substring(srceDir.FullName.Length)));
-			ParallelQuery<ComparableFile> destFiles() => destDir.GetFiles("*", SearchOption.AllDirectories).AsParallel().Select(fi => new ComparableFile(fi, fi.FullName.Substring(destDir.FullName.Length)));
+			
+            
+            ParallelQuery<ComparableFile> destFiles() => destDir.GetFiles("*", System.IO.SearchOption.AllDirectories).AsParallel().Select(fi => new ComparableFile(fi, fi.FullName.Substring(destDir.FullName.Length)));
 
 			// copy to dest
 
