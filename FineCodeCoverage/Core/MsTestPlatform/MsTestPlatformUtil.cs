@@ -1,4 +1,4 @@
-﻿using System.IO;
+﻿using Alphaleonis.Win32.Filesystem;
 using System.Linq;
 using System.ComponentModel.Composition;
 using FineCodeCoverage.Core.Utilities;
@@ -24,7 +24,7 @@ namespace FineCodeCoverage.Engine.MsTestPlatform
 		{
 			var zipDestination = toolFolder.EnsureUnzipped(appDataFolder, zipDirectoryName, toolZipProvider.ProvideZip(zipPrefix));
 			MsTestPlatformExePath = Directory
-				.GetFiles(zipDestination, "vstest.console.exe", SearchOption.AllDirectories)
+				.GetFiles(zipDestination, "vstest.console.exe", System.IO.SearchOption.AllDirectories)
 				.FirstOrDefault();
 		}
 	}

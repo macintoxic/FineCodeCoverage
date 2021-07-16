@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
+using Alphaleonis.Win32.Filesystem;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -526,7 +526,7 @@ namespace Test
                     }
                 );
 
-            var badPath = "^&$!";
+            //var badPath = "^&$!";
             //mockReportGenerator.Setup(rg => rg.ProcessUnifiedHtml(It.IsAny<string>(), It.IsAny<bool>(), out badPath));
 
             List<CoverageLine> coverageLines = new List<CoverageLine>() { new CoverageLine() };

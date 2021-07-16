@@ -1,5 +1,5 @@
 ﻿using System;
-using System.IO;
+using Alphaleonis.Win32.Filesystem;
 using System.Linq;
 using System.Reflection;
 using FineCodeCoverage.Engine;
@@ -80,7 +80,7 @@ namespace FineCodeCoverage.Output
 				{
 					var dllName = $"{assemblyName.Name}.dll";
 					var projectDllPath = Path.GetDirectoryName(typeof(FCCEngine).Assembly.Location);
-					var dllPath = Directory.GetFiles(projectDllPath, "*.dll", SearchOption.AllDirectories).FirstOrDefault(x => Path.GetFileName(x).Equals(x.Equals(dllName, StringComparison.OrdinalIgnoreCase)));
+					var dllPath = Directory.GetFiles(projectDllPath, "*.dll", System.IO.SearchOption.AllDirectories).FirstOrDefault(x => Path.GetFileName(x).Equals(x.Equals(dllName, StringComparison.OrdinalIgnoreCase)));
 
 					if (!string.IsNullOrWhiteSpace(dllPath))
 					{

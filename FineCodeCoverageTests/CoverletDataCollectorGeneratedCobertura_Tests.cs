@@ -1,5 +1,5 @@
 ﻿using System;
-using System.IO;
+using Alphaleonis.Win32.Filesystem;
 using System.Threading;
 using FineCodeCoverage.Engine.Coverlet;
 using NUnit.Framework;

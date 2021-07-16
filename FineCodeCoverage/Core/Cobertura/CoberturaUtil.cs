@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 using System.Collections.Generic;
 using FineCodeCoverage.Engine.Model;
 using System.ComponentModel.Composition;
-using System.IO;
+using Alphaleonis.Win32.Filesystem;
 
 namespace FineCodeCoverage.Engine.Cobertura
 {

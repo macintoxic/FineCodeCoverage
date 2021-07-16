@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="fcc-f339fe606-9d51-4fca-895c-d50375137b62" Version="1.1.0" Language="en-US" Publisher="Fortune Ngwenya" />
-        <DisplayName>Fine Code Coverage</DisplayName>
-        <Description xml:space="preserve">Visualize unit test code coverage easily for free in Visual Studio Community Edition (and other editions too)</Description>
+        <Identity Id="03b9064b-6184-4edf-884a-746d143c5c4c" Version="1.1.1.2" Language="en-US" Publisher="Charles Alves" />
+        <DisplayName>Fine Code Coverage with Long Name Support.</DisplayName>
+        <Description xml:space="preserve">Visualize unit test code coverage easily for free in Visual Studio Community Edition (and other editions too)
+This version has long name support. 
+If your extension isn't working, try installing 5.0 .net framework.
+
+This version is derived from Fortune Ngwenya work.
+https://marketplace.visualstudio.com/publishers/FortuneNgwenya
+
+
+</Description>
         <MoreInfo>https://marketplace.visualstudio.com/items?itemName=FortuneNgwenya.FineCodeCoverage</MoreInfo>
         <License>Resources\LICENSE</License>
         <Icon>Resources\logo.png</Icon>

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.IO;
+using Alphaleonis.Win32.Filesystem;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -68,8 +68,8 @@ namespace FineCodeCoverage.Engine.ReportGenerator
 		public void Initialize(string appDataFolder)
 		{
 			var zipDestination = toolFolder.EnsureUnzipped(appDataFolder, zipDirectoryName, toolZipProvider.ProvideZip(zipPrefix));
-			ReportGeneratorExePath = Directory.GetFiles(zipDestination, "reportGenerator.exe", SearchOption.AllDirectories).FirstOrDefault()
-								  ?? Directory.GetFiles(zipDestination, "*reportGenerator*.exe", SearchOption.AllDirectories).FirstOrDefault();
+			ReportGeneratorExePath = Directory.GetFiles(zipDestination, "reportGenerator.exe", System.IO.SearchOption.AllDirectories).FirstOrDefault()
+								  ?? Directory.GetFiles(zipDestination, "*reportGenerator*.exe", System.IO.SearchOption.AllDirectories).FirstOrDefault();
 		}
 
 		public async Task<ReportGeneratorResult> GenerateAsync(IEnumerable<string> coverOutputFiles, string reportOutputFolder, bool darkMode, bool throwError = false)

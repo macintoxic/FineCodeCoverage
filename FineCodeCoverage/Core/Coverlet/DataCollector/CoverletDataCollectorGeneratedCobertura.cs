@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel.Composition;
-using System.IO;
+using Alphaleonis.Win32.Filesystem;
 using System.Linq;
 using FineCodeCoverage.Core.Utilities;
 
@@ -14,7 +14,7 @@ namespace FineCodeCoverage.Engine.Coverlet
         {
             //C:\\Users\\tonyh\\Source\\Repos\\DataCollectorXUnit\\XUnitTestProject1\\bin\\Debug\\netcoreapp3.1\\fine-code-coverage\\coverage-tool-output\\7ba6447d-a89f-4836-bffc-aeb4799e48ab\\coverage.cobertura.xml\r\nP
             var coverageOutputDirectory = new DirectoryInfo(coverageOutputFolder);
-            var generatedCoberturaFiles = coverageOutputDirectory.GetFiles(collectorGeneratedCobertura, SearchOption.AllDirectories).ToList();
+            var generatedCoberturaFiles = coverageOutputDirectory.GetFiles(collectorGeneratedCobertura, System.IO.SearchOption.AllDirectories).ToList();
             //should only be the one
             var lastWrittenCobertura = generatedCoberturaFiles.OrderBy(f => f.LastWriteTime).LastOrDefault();
             return lastWrittenCobertura;

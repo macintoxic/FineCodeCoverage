@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.Composition;
 using System.Diagnostics.CodeAnalysis;
-using System.IO;
+using Alphaleonis.Win32.Filesystem;
 using FineCodeCoverage.Engine;
 using FineCodeCoverage.Output;
 using Microsoft.VisualStudio.Shell;

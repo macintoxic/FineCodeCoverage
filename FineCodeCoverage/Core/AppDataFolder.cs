@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel.Composition;
-using System.IO;
+using Alphaleonis.Win32.Filesystem;
 using System.Linq;
 
 namespace FineCodeCoverage.Engine
@@ -58,7 +58,7 @@ namespace FineCodeCoverage.Engine
         private void CleanupLegacyFolders()
         {
             Directory
-            .GetDirectories(DirectoryPath, "*", SearchOption.TopDirectoryOnly)
+            .GetDirectories(DirectoryPath, "*", System.IO.SearchOption.TopDirectoryOnly)
             .Where(path =>
             {
                 var name = Path.GetFileName(path);

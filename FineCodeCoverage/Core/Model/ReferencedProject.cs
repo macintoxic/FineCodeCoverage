@@ -1,4 +1,4 @@
-﻿using System.IO;
+﻿using Alphaleonis.Win32.Filesystem;
 using System.Xml.Linq;
 using System.Xml.XPath;
 using FineCodeCoverage.Core.Utilities;

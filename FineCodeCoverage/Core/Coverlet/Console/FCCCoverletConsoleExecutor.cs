@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.Composition;
-using System.IO;
+using Alphaleonis.Win32.Filesystem;
 using System.Linq;
 using FineCodeCoverage.Core.Utilities;
 using FineCodeCoverage.Engine.Model;
@@ -8,12 +8,12 @@ namespace FineCodeCoverage.Engine.Coverlet
 {
     public interface ICoverletConsoleExeFinder
     {
-        string FindInFolder(string folder, SearchOption searchOption);
+        string FindInFolder(string folder, System.IO.SearchOption searchOption);
 
     }
     public class CoverletConsoleExeFinder
     {
-        public string FindInFolder(string folder, SearchOption searchOption)
+        public string FindInFolder(string folder,System.IO.SearchOption searchOption)
         {
             return Directory.GetFiles(folder, "coverlet.exe", searchOption).FirstOrDefault()
                            ?? Directory.GetFiles(folder, "*coverlet*.exe", searchOption).FirstOrDefault();
@@ -49,8 +49,8 @@ namespace FineCodeCoverage.Engine.Coverlet
 		public void Initialize(string appDataFolder)
 		{
 			var zipDestination = toolFolder.EnsureUnzipped(appDataFolder, zipDirectoryName, toolZipProvider.ProvideZip(zipPrefix));
-			coverletExePath = Directory.GetFiles(zipDestination, "coverlet.exe", SearchOption.AllDirectories).FirstOrDefault()
-						   ?? Directory.GetFiles(zipDestination, "*coverlet*.exe", SearchOption.AllDirectories).FirstOrDefault();
+			coverletExePath = Directory.GetFiles(zipDestination, "coverlet.exe", System.IO.SearchOption.AllDirectories).FirstOrDefault()
+						   ?? Directory.GetFiles(zipDestination, "*coverlet*.exe", System.IO.SearchOption.AllDirectories).FirstOrDefault();
 		}
 	}
 }

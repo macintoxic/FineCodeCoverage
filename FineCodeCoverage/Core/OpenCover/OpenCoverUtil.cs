@@ -1,5 +1,5 @@
 ﻿using System;
-using System.IO;
+using Alphaleonis.Win32.Filesystem;
 using System.Linq;
 using System.Collections.Generic;
 using FineCodeCoverage.Engine.Model;
@@ -41,7 +41,7 @@ namespace FineCodeCoverage.Engine.OpenCover
 		{
 			var zipDestination = toolFolder.EnsureUnzipped(appDataFolder, zipDirectoryName, toolZipProvider.ProvideZip(zipPrefix));
 			openCoverExePath = Directory
-				.GetFiles(zipDestination, "OpenCover.Console.exe", SearchOption.AllDirectories)
+				.GetFiles(zipDestination, "OpenCover.Console.exe", System.IO.SearchOption.AllDirectories)
 				.FirstOrDefault();
 		}
 		

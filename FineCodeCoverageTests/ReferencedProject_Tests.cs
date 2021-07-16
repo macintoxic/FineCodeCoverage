@@ -1,4 +1,4 @@
-using System.IO;
+using Alphaleonis.Win32.Filesystem;
 using FineCodeCoverage.Core.Model;
 using NUnit.Framework;
 
